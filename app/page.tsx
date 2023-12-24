@@ -1,123 +1,90 @@
-import Image from 'next/image'
-
+"use client"
+import Link from "next/link";
+import {useRouter} from "next/navigation";
+import { useState} from "react";
 export default function Home() {
-  return (
+    const router = useRouter()
+    const [location,setlocation]= useState('')
 
-      <main className={'bg-gray-100 min-h-screen w-screen'}>
-        <section className={'bg-white max-w-screen-2xl m-auto '}>
-          {/*Nav Bar*/}
-          <nav className={'bg-white p-2 flex justify-between'}>
-            <a href={'#'} className={'font-bold text-gray-700 text-2xl'}>Open Table</a>
-            <div>
-              <div className={'flex'}>
-                <button className={'bg-blue-400 text-white border p-1 px-4 rounded mr-3'}>Sign In</button>
-                <button className={' border p-1 px-4 rounded'}>Sign Out</button>
-              </div>
-            </div>
-          </nav>
-          {/*Nav Bar*/}
-        </section>
-          {/*Header*/}
-        <section className={'h-96 overflow-hidden'}>
-          <div className={'bg-center bg-gradient-to-r from-[#0f1f47] to-[#5f6984] h-full flex justify-center items-center'}>
-            <h1 className={'text-7xl text-white capitalize text-shadow text-center'}>Milestone Grills</h1>
 
-          </div>
-        </section>
-          {/*Header*/}
-          {/*Descriptions*/}
-        <section className={'flex m-auto w-2/3 justify-center items-start 0 -mt-10 '}>
-          <div className={'bg-white w-[70%] rounded p-3 shadow'}>
-              {/*Reasturant Nav Bar*/}
-              <nav className={'flex text-reg border-b pb-2'}>
-                <a href={'#'} className={'mr-7'}>Overviews</a>
-                <a href={'#'} className={'mr-7'}>Menus</a>
-
-              </nav>
-
-              {/*Reasturant Nav Bar*/}
-
-              {/*Title*/}
-              <div className={'mt-4 border-b pb-6'}>
-                  <h1 className={'font-bold text-6xl'}>Milestone Grill</h1>
-              </div>
-              {/*Title*/}
-              {/*Ratings*/}
-              <div className={'flex items-end'}>
-                  <div className={'ratings mt-2 flex items-center'}>
-                      <p>*****</p>
-                      <p className={"text-reg ml-3"}>4.8</p>
-                  </div>
+    return (
+      <main className="bg-gray-100 min-h-screen w-screen">
+          <main className="max-w-screen-2xl m-auto bg-white">
+              {/* NAVBAR */}
+              <nav className="bg-white p-2 flex justify-between">
+                  <Link href="/" className="font-bold text-gray-700 text-2xl"> OpenTable </Link>
                   <div>
-                      <p className={'text-reg ml-4'}>600</p>
-                  </div>
-
-              </div>
-              {/*Ratings*/}
-              {/*Descriptions*/}
-              <div className={'mt-4'}>
-                  <p className={'text-lg font-light'}>
-                      The classics ypu love prepared with a perfect twist,
-                      all served up in an atmosphere that feels right.
-                      Thats the Milestones promise.So, whether your celebrating a milestone,
-                      making the most of Happy Hour or enjoy brunch with friends ,
-                      you can be sure that every Milestones experience is a simple and perfectly memorable one.
-                  </p>
-              </div>
-              {/*Descriptions*/}
-              {/*Images*/}
-              <div>
-                  <h1 className={'font-bold text-3xl mt-10 mb-7 border-b-5'}>5 image</h1>
-                  <div className={'flex flex-wrap'}>
-                      <img className={'w-55 h-44 mr-1 mb-1'}
-                           src={'https://resizer.otstatic.com/v2/photos/xlarge/3/41701449.jpeg'}/>
-                      <img className={'w-55 h-44 mr-1 mb-1'}
-                           src={'https://resizer.otstatic.com/v2/photos/xlarge/3/41701449.jpeg'}/>
-                      <img className={'w-55 h-44 mr-1 mb-1'}
-                           src={'https://resizer.otstatic.com/v2/photos/xlarge/3/41701449.jpeg'}/>
-                      <img className={'w-55 h-44 mr-1 mb-1'}
-                           src={'https://resizer.otstatic.com/v2/photos/xlarge/3/41701449.jpeg'}/>
-                      <img className={'w-55 h-44 mr-1 mb-1'}
-                           src={'https://resizer.otstatic.com/v2/photos/xlarge/3/41701449.jpeg'}/>
-
-                  </div>
-              </div>
-              {/*Images*/}
-
-              {/*Reviews*/}
-              <div>
-                  <h1 className={'font-bold text-3xl mt-10 mb-7 border-b pb-5 '}>What 100 people are saying</h1>
-                  {/*Reviews Card*/}
-                  <div className="border-b pb-7 mb-7">
                       <div className="flex">
-                          <div className="w-1/6 flex flex-col items-center">
-                              <div className="rounded-full bg-blue-400 w-15 h-15 items-center justify-center">
-                                  <h2 className={'text-white text-2xl text-center'}>MJ</h2>
-                              </div>
-                              <p className={'font-bold text-center'}>Michale Jordan</p>
-                          </div>
-                          <div className={'ml-10 w-5/6'}>
-                              <div className={'flex items-center'}>
-                                  <div className="flex mr-5">
-                                      *****
-                                  </div>
-                              </div>
-                              <div className={'mt-5'}>
-                                  <p className={"text-lg font-light"}>i had a good time</p>
-                              </div>
-
-                          </div>
+                          <button
+                              className="bg-blue-400 text-white border p-1 px-4 rounded mr-3"
+                          >
+                              Sign in
+                          </button>
+                          <button className="border p-1 px-4 rounded">Sign up</button>
                       </div>
                   </div>
-                  {/*Reviews Card*/}
-              </div>
-              {/*Reviews*/}
+              </nav>
+              {/* NAVBAR */}
+              <main>
+                  {/* HEADER */}
+                  <div className="h-64 bg-gradient-to-r from-[#0f1f47] to-[#5f6984] p-2">
+                      <div className="text-center mt-10">
+                          <h1 className="text-white text-5xl font-bold mb-2">
+                              Find your table for any occasion
+                          </h1>
+                          {/* SEARCH BAR */}
+                          <div className="text-left text-lg py-3 m-auto flex justify-center">
+                              <input
+                                  className="rounded  mr-3 p-2 w-[450px]"
+                                  type="text"
+                                  placeholder="State, city or town"
+                                  value={location}
+                                  onChange={(e)=>setlocation(e.target.value)}
+                              />
+                              <button className="rounded bg-red-600 px-9 py-2 text-white" onClick={()=>{
+                                  if (location ==="banana") return;
+                                  router.push("/search")
+                              }}>
+                                  Lets go
+                              </button>
+                          </div>
+                          {/* SEARCH BAR */}
+                      </div>
+                  </div>
+                  {/* HEADER */} {/* CARDS */}
+                  <div className="py-3 px-36 mt-10 flex flex-wrap justify-center">
+                      {/* CARD */}
+                      <div className="w-64 h-72 m-3 rounded overflow-hidden border cursor-pointer">
+                          <Link href={'/reastaurant/milestones Grill'}>
 
-          </div>
 
-        </section>
-          {/*Descriptions*/}
+                          <img
+                              src="https://resizer.otstatic.com/v2/photos/wide-huge/2/31852905.jpg"
+                              alt=""
+                              className="w-full h-36"
+                          />
+                          <div className="p-1">
+                              <h3 className="font-bold text-2xl mb-2">Milestones Grill</h3>
+                              <div className="flex items-start">
+                                  <div className="flex mb-2">*****</div>
+                                  <p className="ml-2">77 reviews</p>
+                              </div>
+                              <div className="flex text-reg font-light capitalize">
+                                  <p className=" mr-3">Mexican</p>
+                                  <p className="mr-3">$$$$</p>
+                                  <p>Toronto</p>
+                              </div>
+                              <p className="text-sm mt-1 font-bold">Booked 3 times today</p>
+                          </div>
+                          </Link>
 
+                      </div>
+                      {/* CARD */}
+                  </div>
+                  {/* CARDS */}
+              </main>
+          </main>
       </main>
+
   )
 }
